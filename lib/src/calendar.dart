@@ -378,8 +378,8 @@ class _TableCalendarState extends State<TableCalendar> with SingleTickerProvider
           onLongPress: _onHeaderLongPressed,
           child: Text(
             widget.headerStyle.titleTextBuilder != null
-                ? widget.headerStyle.titleTextBuilder(widget.calendarController.focusedDay, widget.locale)
-                : DateFormat.yMMMM(widget.locale).format(widget.calendarController.focusedDay),
+                ? widget.headerStyle.titleTextBuilder(widget.calendarController.focusedDay, 'fr_FR')
+                : DateFormat.yMMMM('fr_FR').format(widget.calendarController.focusedDay),
             style: widget.headerStyle.titleTextStyle,
             textAlign: widget.headerStyle.centerHeaderTitle ? TextAlign.center : TextAlign.start,
           ),
@@ -541,8 +541,8 @@ class _TableCalendarState extends State<TableCalendar> with SingleTickerProvider
       decoration: widget.daysOfWeekStyle.decoration,
       children: widget.calendarController._visibleDays.value.take(7).map((date) {
         final weekdayString = widget.daysOfWeekStyle.dowTextBuilder != null
-            ? widget.daysOfWeekStyle.dowTextBuilder(date, widget.locale)
-            : DateFormat.E(widget.locale).format(date);
+            ? widget.daysOfWeekStyle.dowTextBuilder(date, 'fr_FR')
+            : DateFormat.E('fr_FR').format(date);
         final isWeekend = widget.calendarController._isWeekend(date, widget.weekendDays);
 
         if (isWeekend && widget.builders.dowWeekendBuilder != null) {
